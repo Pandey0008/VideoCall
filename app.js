@@ -5,7 +5,7 @@ const http = require('http');
 const server = http.createServer(app);
 const socketIo = require('socket.io');
 const io = socketIo(server);
-
+require('dotenv').config()
 app.set('view engine', 'ejs');
 
 
@@ -23,6 +23,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000 , () => {
     console.log('App listening on port http://localhost:3000');
 });
